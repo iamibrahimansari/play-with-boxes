@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/play-with-boxes/static/css/main.1a4e7716.css",
-    "main.js": "/play-with-boxes/static/js/main.16682d2a.js",
+    "main.js": "/play-with-boxes/static/js/main.fa56eb0b.js",
     "index.html": "/play-with-boxes/index.html",
     "main.1a4e7716.css.map": "/play-with-boxes/static/css/main.1a4e7716.css.map",
-    "main.16682d2a.js.map": "/play-with-boxes/static/js/main.16682d2a.js.map"
+    "main.fa56eb0b.js.map": "/play-with-boxes/static/js/main.fa56eb0b.js.map"
   },
   "entrypoints": [
     "static/css/main.1a4e7716.css",
-    "static/js/main.16682d2a.js"
+    "static/js/main.fa56eb0b.js"
   ]
 }
