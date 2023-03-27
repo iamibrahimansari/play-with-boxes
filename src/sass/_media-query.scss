@@ -1,0 +1,29 @@
+@media screen and (max-width: 840px){
+    .btns{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        button{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 490px){
+    .btns{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .box{
+        padding: 2rem;
+        &__boxes{
+            width: 63px;
+            height: 63px;
+        }
+    }
+}
+
+@media screen and (max-width: 320px){
+    .btns{
+        grid-template-columns: 1fr;
+    }
+}

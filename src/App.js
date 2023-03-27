@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import SmallBoxes from './components/SmallBoxes';
+import Btn from './components/Btn';
+import {useState} from 'react';
 
-function App() {
+const App = () => {
+  const [bgColor, setBgColor] = useState(null);
+  const [boxes, setBoxes] = useState([]);
+  const btnContent = ['Red', 'Green', 'Blue', 'Add', 'Delete', 'Reset'];
+
+  const handleDelete = indicator =>{
+    const temp = [...boxes];
+    temp.splice(parseInt(Math.random() * temp.length), 1);
+    setBoxes(temp);
+  }
+  const handleAdd = indicator =>{
+    const code = '0123456789abcdef';
+    let colorCode = '#';
+    for(let i = 0; i < 6; i++){
+      colorCode += code[parseInt(Math.random() * code.length)];
+    }
+    setBoxes([...boxes, colorCode]);
+  }
+  const handleClick = color =>{
+    if(color === 'Add'){
+      handleAdd(color);
+    }else if(color === 'Delete'){
+      handleDelete(color);
+    }else{
+      setBgColor(color === 'Reset' ? '#fff' : color);
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{backgroundColor: `${bgColor}`, display: 'flex', flexWrap: 'wrap'}} className="box">
+        {
+          boxes.map(color => <SmallBoxes key={color} color={color} />)
+        }
+      </div>
+      <div className="btns">
+        {
+          btnContent.map(color => <Btn key={color} onClick={handleClick}>{color}</Btn>)
+        }
+      </div>
     </div>
   );
 }
