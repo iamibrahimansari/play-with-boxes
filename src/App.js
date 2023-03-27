@@ -7,12 +7,12 @@ const App = () => {
   const [boxes, setBoxes] = useState([]);
   const btnContent = ['Red', 'Green', 'Blue', 'Add', 'Delete', 'Reset'];
 
-  const handleDelete = indicator =>{
+  const handleDelete = () =>{
     const temp = [...boxes];
     temp.splice(parseInt(Math.random() * temp.length), 1);
     setBoxes(temp);
   }
-  const handleAdd = indicator =>{
+  const handleAdd = () =>{
     const code = '0123456789abcdef';
     let colorCode = '#';
     for(let i = 0; i < 6; i++){
@@ -20,13 +20,21 @@ const App = () => {
     }
     setBoxes([...boxes, colorCode]);
   }
+
+  const handleReset = () =>{
+    setBoxes([]);
+    setBgColor('#fff');
+  }
+
   const handleClick = color =>{
     if(color === 'Add'){
-      handleAdd(color);
+      handleAdd();
     }else if(color === 'Delete'){
-      handleDelete(color);
+      handleDelete();
+    }else if(color === 'Reset'){
+      handleReset();
     }else{
-      setBgColor(color === 'Reset' ? '#fff' : color);
+      setBgColor(color);
     }
   }
   return (
